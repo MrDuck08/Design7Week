@@ -19,6 +19,9 @@ public class PlayerInteract : MonoBehaviour
     public LayerMask EnergyWorkingMask;
     public LayerMask EnergyBrokenMask;
     public LayerMask BigEnergyMask;
+    public LayerMask FallMask;
+
+    public LayerMask InteractibleMask;
 
     #endregion
 
@@ -77,12 +80,20 @@ public class PlayerInteract : MonoBehaviour
     bool isHoldingAnything;
 
     Door door;
+    ComputerScript computerScript;
+    AmmoScript ammoScript;
+    BigEnergyScript bigEnergyScript;
+    StartScrip startScrip;
 
     #endregion
 
     private void Start()
     {
-        door = FindAnyObjectByType<Door>();
+        door = FindObjectOfType<Door>();
+        computerScript = FindObjectOfType<ComputerScript>();
+        ammoScript = FindObjectOfType<AmmoScript>();
+        bigEnergyScript = FindObjectOfType<BigEnergyScript>();
+        startScrip = FindObjectOfType<StartScrip>();
     }
 
     void Update()
@@ -92,6 +103,13 @@ public class PlayerInteract : MonoBehaviour
         if (door.isAmmobroken)
         {
             ammoDoors.SetActive(false);
+        }
+
+        if (startScrip.died)
+        {
+            ammoScript.TutorialAmmoClipboard.SetActive(false);
+            bigEnergyScript.TutorialEnergyClipboard.SetActive(false);
+            computerScript.TutorialComputerClipboard.SetActive(false);
         }
     }
 
@@ -134,7 +152,7 @@ public class PlayerInteract : MonoBehaviour
                 isHoldingAmmoBox = false;
                 isHoldingAnything = false;
 
-                StartCoroutine(ammoDoorCloseRoutine(hit));
+                StartCoroutine(ammoDoorCloseRoutine());
             }
         }
         #endregion
@@ -199,20 +217,29 @@ public class PlayerInteract : MonoBehaviour
                 {
                     EnergyWorkingObject.SetActive(false);
 
-                    door.isEnergyBroken = false;
-
                     hit.collider.gameObject.transform.GetChild(4).gameObject.SetActive(true);
-
-                    hit.collider.GetComponent<BrokenEnergyScript>().FixEnergyFromBrokenEnergy();
 
                     isHoldingAnything = false;
                     isHoldingEnergy = false;
+
+
+                    door.isEnergyBroken = false;
+
+                    if (bigEnergyScript.energyTutorialActive)
+                    {
+                        bigEnergyScript.EnergyTutorial();
+                    }
+                    else
+                    {
+                        bigEnergyScript.EnergyFix();
+                    }                    
                 }
             }
         }
 
         if(Physics.Raycast(WeaponRay, out hit, interactRange, BigEnergyMask) && !isHoldingAnything)
         {
+
             if (clipboardBigEnergy.transform.position.y <= 250)
             {
                 clipboardBigEnergy.transform.position += new Vector3(0, 15, 0);
@@ -263,23 +290,29 @@ public class PlayerInteract : MonoBehaviour
 
                     door.isComputerBroken = false;
 
-                    hit.collider.GetComponent<Interactable>().ComputerFix();
+                    computerScript.ComputerFix();
 
                     isHoldingChip = false;
                     isHoldingAnything = false;
                 }
             }
 
-            if (clipboardComputer.transform.position.y <= 250)
+            if (!isHoldingAnything)
             {
-                clipboardComputer.transform.position += new Vector3(0, 15, 0);
+                if (clipboardComputer.transform.position.y <= 250)
+                {
+                    clipboardComputer.transform.position += new Vector3(0, 15, 0);
+                }
             }
         }
         else
         {
-            if (clipboardComputer.transform.position.y >= -340)
+            if(!isHoldingChip)
             {
-                clipboardComputer.transform.position -= new Vector3(0, 15, 0);
+                if (clipboardComputer.transform.position.y >= -340)
+                {
+                    clipboardComputer.transform.position -= new Vector3(0, 15, 0);
+                }
             }
         }
 
@@ -296,6 +329,19 @@ public class PlayerInteract : MonoBehaviour
 
                 isHoldingAmmoBox = false;
                 isHoldingAnything = false;
+
+                if (computerScript.ComputerTutorialActive && computerScript.tutorialActive)
+                {
+                    computerScript.computerTutorial = true;
+                }
+                if (bigEnergyScript.energyTutorialActive && bigEnergyScript.tutorialActive)
+                {
+                    bigEnergyScript.energyTutorial = true;
+                }
+                if (ammoScript.ammoTutorialActive && ammoScript.tutorialActive)
+                {
+                    ammoScript.ammoTutoral = true;
+                }
             }
 
             if (isHoldingEnergy)
@@ -304,6 +350,19 @@ public class PlayerInteract : MonoBehaviour
 
                 isHoldingEnergy = false;
                 isHoldingAnything = false;
+
+                if (computerScript.ComputerTutorialActive && computerScript.tutorialActive)
+                {
+                    computerScript.computerTutorial = true;
+                }
+                if (bigEnergyScript.energyTutorialActive && bigEnergyScript.tutorialActive)
+                {
+                    bigEnergyScript.energyTutorial = true;
+                }
+                if (ammoScript.ammoTutorialActive && ammoScript.tutorialActive)
+                {
+                    ammoScript.ammoTutoral = true;
+                }
             }
 
             if (isHoldingChip)
@@ -312,19 +371,80 @@ public class PlayerInteract : MonoBehaviour
 
                 isHoldingChip = false;
                 isHoldingAnything = false;
+
+                if (computerScript.ComputerTutorialActive && computerScript.tutorialActive)
+                {
+                    computerScript.computerTutorial = true;
+                }
+                if (bigEnergyScript.energyTutorialActive && bigEnergyScript.tutorialActive)
+                {
+                    bigEnergyScript.energyTutorial = true;
+                }
+                if (ammoScript.ammoTutorialActive && ammoScript.tutorialActive)
+                {
+                    ammoScript.ammoTutoral = true;
+                }
             }
         }
 
         #endregion
+
+        if(Physics.Raycast(WeaponRay, out hit, interactRange, InteractibleMask) && !isHoldingAnything)
+        {
+            if (computerScript.computerTutorial)
+            {
+                computerScript.computerTutorial = false;
+            }
+            if (bigEnergyScript.energyTutorial)
+            {
+                bigEnergyScript.energyTutorial = false;
+            }
+            if (ammoScript.ammoTutoral)
+            {
+                ammoScript.ammoTutoral = false;
+            }
+        }
+        else
+        {
+            if (computerScript.ComputerTutorialActive && computerScript.tutorialActive && !isHoldingAnything)
+            {
+                computerScript.computerTutorial = true;
+            }
+            if (bigEnergyScript.energyTutorialActive && bigEnergyScript.tutorialActive && !isHoldingAnything)
+            {
+                bigEnergyScript.energyTutorial = true;
+            }
+            if (ammoScript.ammoTutorialActive && ammoScript.tutorialActive && !isHoldingAnything)
+            {
+                ammoScript.ammoTutoral = true;
+            }
+        }
     }
 
-    IEnumerator ammoDoorCloseRoutine(RaycastHit mmm)
+    IEnumerator ammoDoorCloseRoutine()
     {
         yield return new WaitForSeconds(1f);
 
         ammoDoors.SetActive(true);
         ammoCartBox.SetActive(false);
 
-        mmm.collider.GetComponent<Interactable>().AmmoFix();
+        if (ammoScript.ammoTutoral)
+        {
+            ammoScript.AmmoTutorialFix();
+        }
+        else
+        {
+            ammoScript.AmmoFix();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == 14)
+        {
+            Debug.Log("DIED");
+            startScrip.DieByFall();
+            Time.timeScale = 0;
+        }
     }
 }

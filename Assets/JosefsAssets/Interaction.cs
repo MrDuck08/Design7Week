@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
-
 
 // DO NOT EDIT, will be updated by me (Josef) in the future. Write your own script!
 public class Interaction : MonoBehaviour
 {
+    //using static UnityEditor.Timeline.TimelinePlaybackControls;
+
     [SerializeField] TextMeshProUGUI objectiveText = null;
     [SerializeField] TextMeshProUGUI interactText = null;
     [SerializeField] TextMeshProUGUI winText = null;

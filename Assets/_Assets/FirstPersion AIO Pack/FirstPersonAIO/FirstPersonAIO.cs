@@ -305,7 +305,7 @@ public class FirstPersonAIO : MonoBehaviour {
             }
         }
         cameraStartingPosition = playerCamera.transform.localPosition;
-        if(lockAndHideCursor) { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; }
+        //if(lockAndHideCursor) { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; }
         baseCamFOV = playerCamera.fieldOfView;
         #endregion
 
@@ -373,7 +373,7 @@ public class FirstPersonAIO : MonoBehaviour {
             else if(Input.GetKeyDown(_crouchModifiers.crouchKey)){isCrouching = !isCrouching || _crouchModifiers.crouchOverride;}
             }
 
-        if(Input.GetButtonDown("Cancel")){ControllerPause();}
+        //if(Input.GetButtonDown("Cancel")){ControllerPause();}
         #endregion
 
         #region Movement Settings - Update

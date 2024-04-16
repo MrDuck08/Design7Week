@@ -10,23 +10,35 @@ public class Lights : MonoBehaviour
     float lessLightTimer = 0.5f;
 
     bool pauseInLessLight;
-    bool stopFlicker;
+    bool stopFlicker = false;
+    public bool computerMalfunction = false;
 
     public Light[] allLightsObject;
     public Light[] doorLights;
 
     public float doorMaxStatus = 2;
 
+    StartScrip startScrip;
+
+    private void Start()
+    {
+        startScrip = FindObjectOfType<StartScrip>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        LightBasics();
+        if(startScrip.startBool == false)
+        {
+            LightBasics();
+        }
     }
 
     private void LightBasics()
     {
-        if (currentLightStatus >= minLightStatus)
+        if (currentLightStatus >= minLightStatus  && !computerMalfunction)
         {
+
             if (!stopFlicker)
             {
                 StartCoroutine(LighFlickerRoutine());
@@ -66,7 +78,7 @@ public class Lights : MonoBehaviour
 
         yield return new WaitForSeconds(5);
 
-        int whatLightToFlicker = Random.Range(0, 53);
+        int whatLightToFlicker = Random.Range(0, 55);
 
         allLightsObject[whatLightToFlicker].intensity = 0;
 
