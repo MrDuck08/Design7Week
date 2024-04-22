@@ -15,8 +15,8 @@ public class BigEnergyScript : MonoBehaviour
     public GameObject TestSoundWorking;
 
     public bool energyBroken;
-    public bool energyTutorial = true;
-    public bool energyTutorialActive = true;
+    public bool energyTutorial = false;
+    public bool energyTutorialActive = false;
 
     bool countDownEnergyStart;
 
@@ -146,10 +146,9 @@ public class BigEnergyScript : MonoBehaviour
     public void EnergyTutorial()
     {
         energyTutorialActive = false;
+        energyTutorial = false;
 
         Debug.Log("WORK");
-
-        energyTutorial = false;
 
         ammoScript.ammoTutorialActive = true;
         ammoScript.ammoTutoral = true;

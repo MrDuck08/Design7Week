@@ -155,7 +155,6 @@ public class ComputerScript : MonoBehaviour
 
     public void ComputerFix()
     {
-        Debug.Log("WHY");
         countDownComputerStart = false;
         ComputerTutorialActive = false;
 
@@ -163,6 +162,7 @@ public class ComputerScript : MonoBehaviour
 
         computerBroken = false;
         door.isComputerBroken = false;
+        lightScript.tutortialActive = false;
 
 
         ammoScript.tutorialActive = false;

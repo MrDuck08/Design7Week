@@ -84,6 +84,7 @@ public class PlayerInteract : MonoBehaviour
     AmmoScript ammoScript;
     BigEnergyScript bigEnergyScript;
     StartScrip startScrip;
+    Lights LightsScript;
 
     #endregion
 
@@ -94,6 +95,7 @@ public class PlayerInteract : MonoBehaviour
         ammoScript = FindObjectOfType<AmmoScript>();
         bigEnergyScript = FindObjectOfType<BigEnergyScript>();
         startScrip = FindObjectOfType<StartScrip>();
+        LightsScript = FindObjectOfType<Lights>();
     }
 
     void Update()
@@ -163,8 +165,14 @@ public class PlayerInteract : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-
-                hit.collider.GetComponent<Lights>().RestoreLight();
+                if (LightsScript.tutortialActive)
+                {
+                    hit.collider.GetComponent<Lights>().RestoreLightTutorial();
+                }
+                else
+                {
+                    hit.collider.GetComponent<Lights>().RestoreLight();
+                }
 
             }
 
@@ -403,6 +411,10 @@ public class PlayerInteract : MonoBehaviour
             {
                 ammoScript.ammoTutoral = false;
             }
+            if (LightsScript.lightTutorial)
+            {
+                LightsScript.lightTutorial = false;
+            }
         }
         else
         {
@@ -417,6 +429,10 @@ public class PlayerInteract : MonoBehaviour
             if (ammoScript.ammoTutorialActive && ammoScript.tutorialActive && !isHoldingAnything)
             {
                 ammoScript.ammoTutoral = true;
+            }
+            if(LightsScript.lightTutorialActive && LightsScript.tutortialActive && !isHoldingAnything)
+            {
+                LightsScript.lightTutorial = true;
             }
         }
     }
