@@ -644,7 +644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back
+  m_text: i understand and comply
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
   m_sharedMaterial: {fileID: -3163088451591585673, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
@@ -671,8 +671,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 15.07
+  m_fontSizeBase: 15.07
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -44.4
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1150,6 +1150,10 @@ PrefabInstance:
       propertyPath: clipboardBigEnergy
       value: 
       objectReference: {fileID: 1500519992}
+    - target: {fileID: 4853435962969908369, guid: 2e62f5703e5f8d2488a5e1bc8433be41, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16350,7 +16354,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 145489941708477456, guid: f3666c4739f55c24eb42ed8d7b508700, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.68
+      value: 28.7
       objectReference: {fileID: 0}
     - target: {fileID: 145489941708477456, guid: f3666c4739f55c24eb42ed8d7b508700, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16358,7 +16362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 145489941708477456, guid: f3666c4739f55c24eb42ed8d7b508700, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 46.24
+      value: 46.2
       objectReference: {fileID: 0}
     - target: {fileID: 145489941708477456, guid: f3666c4739f55c24eb42ed8d7b508700, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16424,7 +16428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1024725969411930292, guid: 251977d85f345b94c805b990d722732f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 37.881
+      value: 37.863003
       objectReference: {fileID: 0}
     - target: {fileID: 1024725969411930292, guid: 251977d85f345b94c805b990d722732f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17121,18 +17125,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413243495}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.022911929, w: 0.9997375}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.48728997, y: 0.48728997, z: 0.48728997}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 10003781}
   m_Father: {fileID: 1363150560}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.626}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.27201, y: -31.9}
-  m_SizeDelta: {x: 52.98689, y: 30}
+  m_AnchoredPosition: {x: -3.1115, y: -29.3}
+  m_SizeDelta: {x: 82.15245, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &413243497
 MonoBehaviour:
@@ -22332,7 +22336,7 @@ GameObject:
   - component: {fileID: 550083387}
   - component: {fileID: 550083386}
   m_Layer: 5
-  m_Name: QuitButton (1)
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22345,18 +22349,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550083384}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.023426259, w: 0.9997256}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5.421101, y: 5.421101, z: 5.421101}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 735412196}
   m_Father: {fileID: 933620060}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.685}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.904, y: -331}
-  m_SizeDelta: {x: 51.185, y: 30}
+  m_AnchoredPosition: {x: -27.673826, y: -331}
+  m_SizeDelta: {x: 77.4312, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &550083386
 MonoBehaviour:
@@ -27237,7 +27241,7 @@ GameObject:
   - component: {fileID: 735412198}
   - component: {fileID: 735412197}
   m_Layer: 5
-  m_Name: QuitText
+  m_Name: BackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27282,7 +27286,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back
+  m_text: i understand and comly
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
   m_sharedMaterial: {fileID: -3163088451591585673, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
@@ -27309,8 +27313,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 14.9
+  m_fontSizeBase: 14.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -27321,7 +27325,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -40.5
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -27453,7 +27457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Manuel#1
+  m_text: 'Manual#1
 
 '
   m_isRightToLeft: 0
@@ -29557,7 +29561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7515332717815086903, guid: 65467f6b70ddf5e4890bd9f317b3a5b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 46.22
+      value: 46.2
       objectReference: {fileID: 0}
     - target: {fileID: 7515332717815086903, guid: 65467f6b70ddf5e4890bd9f317b3a5b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -53222,7 +53226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1024725969411930292, guid: 251977d85f345b94c805b990d722732f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 36.404
+      value: 36.386
       objectReference: {fileID: 0}
     - target: {fileID: 1024725969411930292, guid: 251977d85f345b94c805b990d722732f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -59655,7 +59659,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Manuel#4
+  m_text: 'Manual#4
 
 '
   m_isRightToLeft: 0
@@ -64383,7 +64387,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit
+  m_text: no more!!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
   m_sharedMaterial: {fileID: -3163088451591585673, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
@@ -64410,8 +64414,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 21.14
+  m_fontSizeBase: 21.14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -64422,7 +64426,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -40.53
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -68571,7 +68575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Manuel#2
+  m_text: Manual#2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
   m_sharedMaterial: {fileID: -3163088451591585673, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
@@ -75011,18 +75015,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030925556}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.032499515, w: 0.9994718}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.48728997, y: 0.48728997, z: 0.48728997}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1735632008}
   m_Father: {fileID: 1829238668}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.725}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.52023, y: -24}
-  m_SizeDelta: {x: 43.16089, y: 30}
+  m_AnchoredPosition: {x: -1.12249, y: -23.999996}
+  m_SizeDelta: {x: 90.75861, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2030925558
 MonoBehaviour:
