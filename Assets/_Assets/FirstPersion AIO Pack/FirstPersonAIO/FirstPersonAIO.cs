@@ -403,7 +403,7 @@ public class FirstPersonAIO : MonoBehaviour {
                     StaminaMeter.color = Vector4.MoveTowards(StaminaMeter.color, new Vector4(1,1,1,1),0.15f);
                 }
             }else if((!Input.GetKey(sprintKey)||Mathf.Abs(fps_Rigidbody.velocity.x)< 0.01f || Mathf.Abs(fps_Rigidbody.velocity.z)< 0.01f || isCrouching)&&staminaInternal<staminaLevel){
-                staminaInternal += staminaDepletionSpeed*Time.deltaTime;
+                staminaInternal += staminaDepletionSpeed*Time.deltaTime * 1.5f;
             }
                 if(drawStaminaMeter){
                    if(staminaInternal==staminaLevel){ StaminaMeterBG.color = Vector4.MoveTowards(StaminaMeterBG.color, new Vector4(0,0,0,0),0.15f);

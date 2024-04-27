@@ -139,7 +139,6 @@ public class Lights : MonoBehaviour
 
     public void RestoreLightTutorial()
     {
-        Debug.Log("More Light Tutorial");
         currentLightStatus += 0.5f;
 
         foreach (Light AllLights in lightsObject)

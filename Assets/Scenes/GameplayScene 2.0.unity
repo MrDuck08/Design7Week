@@ -19931,7 +19931,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Take right and go down below reactor to get new coolant and replace the
-    malfunctioning one (red).
+    malfunctioning one (red) by reactor.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
   m_sharedMaterial: {fileID: -3163088451591585673, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
@@ -19958,8 +19958,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.3
-  m_fontSizeBase: 32.3
+  m_fontSize: 31.53
+  m_fontSizeBase: 31.53
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -22699,7 +22699,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Go to yellow/red button and restore light by pressing it repeatetly. '
+  m_text: 'For work efficiency go to yellow/red button and restore light by pressing
+    it repeatetly. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
   m_sharedMaterial: {fileID: -3163088451591585673, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
@@ -22726,8 +22727,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 34.33
+  m_fontSizeBase: 34.33
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -22762,7 +22763,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -192.84601, y: 43.518852, z: 127.77713, w: -252.46097}
+  m_margin: {x: -197.9917, y: 39.229134, z: 127.77713, w: -252.46097}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -49960,7 +49961,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " manual \n#4"
+  m_text: "manual \n#4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
   m_sharedMaterial: {fileID: -3163088451591585673, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
@@ -54510,7 +54511,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " manual \n#3"
+  m_text: "manual \n#3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
   m_sharedMaterial: {fileID: -3163088451591585673, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
@@ -58491,7 +58492,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " manual \n#1"
+  m_text: "manual \n#1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
   m_sharedMaterial: {fileID: -3163088451591585673, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
@@ -71888,7 +71889,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " manual \n#2"
+  m_text: "manual \n#2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
   m_sharedMaterial: {fileID: -3163088451591585673, guid: 8eb8fa07e6b0e8941a5a01e3b8db237b, type: 2}
