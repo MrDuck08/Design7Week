@@ -27,6 +27,8 @@ public class ComputerScript : MonoBehaviour
     BigEnergyScript bigEnergyScript;
     StartScrip startScrip;
 
+    public GameObject brokenSound;
+
 
     private void Start()
     {
@@ -36,6 +38,8 @@ public class ComputerScript : MonoBehaviour
         ammoScript = FindObjectOfType<AmmoScript>();
         bigEnergyScript = FindObjectOfType<BigEnergyScript>();
         startScrip = FindObjectOfType<StartScrip>();
+
+        brokenSound.SetActive(false);
     }
 
     private void Update()
@@ -95,7 +99,7 @@ public class ComputerScript : MonoBehaviour
             mymat.SetColor("_EmissionColor", Color.black);
 
 
-            foreach (Light AllLights in lightScript.allLightsObject)
+            foreach (Light AllLights in lightScript.allLightObjects)
             {
                 AllLights.intensity = 0;
             }
@@ -112,7 +116,7 @@ public class ComputerScript : MonoBehaviour
 
             mymat.SetColor("_EmissionColor", Color.white);
 
-            foreach (Light AllLights in lightScript.allLightsObject)
+            foreach (Light AllLights in lightScript.allLightObjects)
             {
                 AllLights.intensity = lightScript.currentLightStatus;
             }
@@ -151,6 +155,8 @@ public class ComputerScript : MonoBehaviour
         Debug.Log("ComputerBroken");
 
         computerBroken = true;
+
+        brokenSound.SetActive(true);
     }
 
     public void ComputerFix()
@@ -170,6 +176,8 @@ public class ComputerScript : MonoBehaviour
         bigEnergyScript.tutorialActive = false;
         tutorialActive = false;
         computerTutorial = false;
+
+        brokenSound.SetActive(false);
 
         StartCoroutine(door.TimeUntulWinRoutine());
     }

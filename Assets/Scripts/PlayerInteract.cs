@@ -77,7 +77,9 @@ public class PlayerInteract : MonoBehaviour
     #region Genreral
 
     float interactRange = 3;
+
     bool isHoldingAnything;
+    bool controllsTutorialActive = true;
 
     Door door;
     ComputerScript computerScript;
@@ -85,6 +87,8 @@ public class PlayerInteract : MonoBehaviour
     BigEnergyScript bigEnergyScript;
     StartScrip startScrip;
     Lights LightsScript;
+
+    public GameObject ControllsTutorial;
 
     #endregion
 
@@ -112,6 +116,21 @@ public class PlayerInteract : MonoBehaviour
             ammoScript.TutorialAmmoClipboard.SetActive(false);
             bigEnergyScript.TutorialEnergyClipboard.SetActive(false);
             computerScript.TutorialComputerClipboard.SetActive(false);
+        }
+
+        if(controllsTutorialActive)
+        {
+            if (ControllsTutorial.transform.position.y <= 250)
+            {
+                ControllsTutorial.transform.position += new Vector3(0, 15, 0);
+            }
+        }
+        else
+        {
+            if (ControllsTutorial.transform.position.y >= -340)
+            {
+                ControllsTutorial.transform.position -= new Vector3(0, 15, 0);
+            }
         }
     }
 
@@ -461,6 +480,17 @@ public class PlayerInteract : MonoBehaviour
             Debug.Log("DIED");
             startScrip.DieByFall();
             Time.timeScale = 0;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 15)
+        {
+            controllsTutorialActive = false;
+
+            LightsScript.lightTutorial = true;
+            LightsScript.lightTutorialActive = true;
         }
     }
 }

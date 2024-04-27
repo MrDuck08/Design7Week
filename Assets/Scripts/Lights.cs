@@ -15,16 +15,19 @@ public class Lights : MonoBehaviour
     bool stopFlicker = false;
 
     public bool computerMalfunction = false;
-    public bool lightTutorial = true;
-    public bool lightTutorialActive = true;
+    public bool lightTutorial = false;
+    public bool lightTutorialActive = false;
 
     public bool tutortialActive = true;
 
 
-    public Light[] allLightsObject;
+    public Light[] lightsObject;
+    public Light[] allLightObjects;
     public Light[] doorLights;
 
     public GameObject LightTutorialObject;
+
+    public Material LightFixMaterial;
 
     StartScrip startScrip;
     BigEnergyScript bigEnergyScript;
@@ -34,11 +37,13 @@ public class Lights : MonoBehaviour
         startScrip = FindObjectOfType<StartScrip>();
         bigEnergyScript = FindObjectOfType<BigEnergyScript>();
 
-        if (lightTutorialActive)
+        LightFixMaterial.SetColor("_EmissionColor", Color.red);
+
+        if (tutortialActive)
         {
             currentLightStatus = 0;
 
-            foreach (Light AllLights in allLightsObject)
+            foreach (Light AllLights in lightsObject)
             {
                 AllLights.intensity = currentLightStatus;
             }
@@ -80,7 +85,7 @@ public class Lights : MonoBehaviour
                 StartCoroutine(LighFlickerRoutine());
             }
 
-            foreach (Light AllLights in allLightsObject)
+            foreach (Light AllLights in lightsObject)
             {
                 AllLights.intensity = currentLightStatus;
             }
@@ -92,7 +97,13 @@ public class Lights : MonoBehaviour
 
             if (currentLightStatus >= maxLightStatus)
             {
+                LightFixMaterial.SetColor("_EmissionColor", Color.green);
+
                 currentLightStatus = maxLightStatus;
+            }
+            else
+            {
+                LightFixMaterial.SetColor("_EmissionColor", Color.red);
             }
         }
     }
@@ -116,7 +127,7 @@ public class Lights : MonoBehaviour
 
         int whatLightToFlicker = Random.Range(0, 54);
 
-        allLightsObject[whatLightToFlicker].intensity = 0;
+        lightsObject[whatLightToFlicker].intensity = 0;
 
         stopFlicker = false;
     }
@@ -131,13 +142,15 @@ public class Lights : MonoBehaviour
         Debug.Log("More Light Tutorial");
         currentLightStatus += 0.5f;
 
-        foreach (Light AllLights in allLightsObject)
+        foreach (Light AllLights in lightsObject)
         {
             AllLights.intensity = currentLightStatus;
         }
 
         if (currentLightStatus >= maxLightStatus)
         {
+            LightFixMaterial.SetColor("_EmissionColor", Color.green);
+
             lightTutorial = false;
             lightTutorialActive = false;
 

@@ -11,8 +11,8 @@ public class Door : MonoBehaviour
 
     public GameObject HealhtTimeVisuals;
 
-    public float currentDoorhealth = 120f;
-    float maxDoorHealth = 120f;
+    public float currentDoorhealth = 110f;
+    float maxDoorHealth = 110f;
 
     float currentTimeUntilWin = 370;
     float maxTimeUntilWin = 370f;

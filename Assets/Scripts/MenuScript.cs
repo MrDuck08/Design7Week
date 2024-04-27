@@ -10,15 +10,18 @@ public class MenuScript : MonoBehaviour
     public GameObject Menubasic;
     public GameObject controllerCanvas;
     public GameObject ManualsCanvas;
+    public GameObject SettingCanvas;
     public GameObject Manuel1;
     public GameObject Manuel2;
     public GameObject Manuel3;
     public GameObject Manuel4;
     public GameObject BackOnManuel;
 
-    bool MenuIsActive;
+
+    bool menuIsActive;
     bool controllerCanvasActive;
-    bool ManualCanvasActive;
+    bool manualCanvasActive;
+    bool settingCanvasActive;
 
     private void Start()
     {
@@ -42,13 +45,46 @@ public class MenuScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (!menuIsActive && settingCanvasActive)
+            {
+                SettingCanvas.SetActive(false);
+                Menubasic.SetActive(true);
 
-            if (!MenuIsActive)
+                settingCanvasActive = false;
+                menuIsActive = true;
+
+                return;
+            }
+
+            if (!menuIsActive && controllerCanvasActive)
+            {
+                controllerCanvas.SetActive(false);
+                Menubasic.SetActive(true);
+
+                controllerCanvasActive = false;
+                menuIsActive = true;
+
+                return;
+            }
+
+            if (!menuIsActive && manualCanvasActive)
+            {
+                Menubasic.SetActive(true);
+                ManualsCanvas.SetActive(false);
+
+                menuIsActive = true;
+                manualCanvasActive = false;
+
+                return;
+            }
+
+
+            if (!menuIsActive)
             {
                 Menubasic.SetActive(true);
                 Menu.SetActive(true);
 
-                MenuIsActive = true;
+                menuIsActive = true;
 
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0f;
@@ -56,34 +92,16 @@ public class MenuScript : MonoBehaviour
                 return;
             }
 
-            if (MenuIsActive)
+            if (menuIsActive)
             {
                 Menubasic.SetActive(false);
                 Menu.SetActive(false);
 
-                MenuIsActive = false;
+                menuIsActive = false;
 
                 Time.timeScale = 1f;
 
                 Cursor.lockState = CursorLockMode.Locked;
-            }
-
-            if (!MenuIsActive && controllerCanvasActive)
-            {
-                controllerCanvas.SetActive(false);
-                Menubasic.SetActive(true);
-
-                controllerCanvasActive = false;
-                MenuIsActive = true;
-            }
-
-            if(MenuIsActive && ManualCanvasActive)
-            {
-                Menubasic.SetActive(true);
-                ManualsCanvas.SetActive(false);
-
-                MenuIsActive = true;
-                ManualCanvasActive = false;
             }
         }
     }
@@ -94,8 +112,8 @@ public class MenuScript : MonoBehaviour
         Menubasic.SetActive(false);
         ManualsCanvas.SetActive(true);
 
-        MenuIsActive = false;
-        ManualCanvasActive = true;
+        menuIsActive = false;
+        manualCanvasActive = true;
 
     }
 
@@ -105,9 +123,19 @@ public class MenuScript : MonoBehaviour
         Menubasic.SetActive(false);
         controllerCanvas.SetActive(true);
 
-        MenuIsActive = false;
+        menuIsActive = false;
         controllerCanvasActive = true;
 
+    }
+
+    public void FromMenuToSettings()
+    {
+
+        Menubasic.SetActive(false);
+        SettingCanvas.SetActive(true);
+
+        menuIsActive = false;
+        settingCanvasActive = true;
     }
 
     public void WhatManualToShow(GameObject WhatToShow)
@@ -149,10 +177,12 @@ public class MenuScript : MonoBehaviour
         Menubasic.SetActive(true);
         controllerCanvas.SetActive(false);
         ManualsCanvas.SetActive(false);
+        SettingCanvas.SetActive(false);
 
-        MenuIsActive = true;
-        ManualCanvasActive = false;
+        menuIsActive = true;
+        manualCanvasActive = false;
         controllerCanvasActive = false;
+        settingCanvasActive = false;
     }
 
     #endregion
